@@ -1,0 +1,66 @@
+import React, { useMemo } from 'react'
+import { NormalTypes } from '../utils/prop-types'
+import { GeistUIThemesPalette } from '../themes/presets'
+
+export interface Props {
+  tag: keyof JSX.IntrinsicElements
+  type?: NormalTypes
+  size?: string | number
+  className?: ''
+}
+
+const defaultProps = {
+  type: 'default' as NormalTypes,
+  className: '',
+}
+
+const getTypeColor = (type: NormalTypes, palette: GeistUIThemesPalette) => {
+  const colors: { [key in NormalTypes]: string } = {
+    default: 'inherit',
+    secondary: palette.secondary,
+    success: palette.success,
+    warning: palette.warning,
+    error: palette.error,
+  }
+
+  return colors[type] || colors.default
+}
+
+type NativeAttrs = Omit<React.DetailsHTMLAttributes<any>, keyof Props>
+export type TextChildProps = Props & typeof defaultProps & NativeAttrs
+
+const TextChild: React.FC<React.PropsWithChildren<TextChildProps>> = ({
+  children,
+  tag,
+  className,
+  type,
+  size,
+  ...props
+}) => {
+  const Component = tag
+  const fontSize = useMemo<string>(() => {
+    if (!size) return 'inherit'
+    if (typeof size === 'number') return `${size}px`
+    return size
+  }, [size])
+
+  return (
+    <>
+      <Component className={`${size ? 'custom-size' : ''} ${className}`} {...props}>
+        {children}
+      </Component>
+      <style jsx>{`
+        ${tag} {
+          color: "black";
+        }
+        .custom-size {
+          font-size: ${fontSize};
+        }
+      `}</style>
+    </>
+  )
+}
+
+const MemoTextChild = React.memo(TextChild)
+
+export default MemoTextChild
