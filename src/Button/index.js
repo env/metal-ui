@@ -1,3 +1,4 @@
+import tw, { styled, css } from "twin.macro";
 import React, { cloneElement } from "react";
 import classNames from "classnames/bind";
 import PropTypes from "prop-types";
@@ -32,14 +33,15 @@ const Button = ({
 
   const ButtonContent = (
     <div
-      className={classNames("inline-flex items-center", {
-        "opacity-0": isLoading,
-        "opacity-100": !isLoading,
-      })}
+      css={[
+        tw`inline-flex items-center`,
+        isLoading && tw`opacity-0`,
+        !isLoading && tw`opacity-100`,
+      ]}
     >
-      {iconBefore && <span className="mr-2">{cloneElement(iconBefore)}</span>}
+      {iconBefore && <span tw="mr-2">{cloneElement(iconBefore)}</span>}
       <span>{label}</span>
-      {iconAfter && <span className="ml-2">{cloneElement(iconAfter)}</span>}
+      {iconAfter && <span tw="ml-2">{cloneElement(iconAfter)}</span>}
     </div>
   );
 
