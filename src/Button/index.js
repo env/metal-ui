@@ -37,7 +37,7 @@ const Button = ({
       disabled={disabled || isLoading}
       className={className}
       css={[
-        tw`relative border items-center flex font-medium rounded focus:outline-none transition ease-in-out duration-150 justify-center max-w-full cursor-pointer`,
+        tw`relative border items-center flex font-medium rounded focus:outline-none transition ease-in-out duration-150 justify-center max-w-full cursor-pointer border-solid text-sm`,
         disabled &&
           tw`border-border text-accent-four hover:text-accent-four active:text-accent-four bg-accent-two hover:bg-accent-two active:bg-accent-two cursor-not-allowed`,
         variant == "default" &&
@@ -58,9 +58,9 @@ const Button = ({
         variant == "brand-s" &&
           !disabled &&
           tw`border-brand-gray text-white hover:text-white bg-transparent hover:opacity-80 active:text-white`,
-        size == "small" && tw`px-4 h-8 leading-8 text-sm`,
-        size == "normal" && tw`px-6 h-9 leading-9 text-sm`,
-        size == "large" && tw`px-12 h-10 leading-10 text-base`,
+        size == "small" && tw`px-4 h-8 leading-8`,
+        size == "normal" && tw`px-6 h-9 leading-9`,
+        size == "large" && tw`px-12 h-10 leading-10`,
         block && tw`w-full`,
       ]}
     >

@@ -7447,7 +7447,7 @@ var Button_Button = function Button(_ref) {
     onClick: onClick,
     disabled: disabled || isLoading,
     className: className,
-    css: ["transition-property:background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms;position:relative;border-width:1px;align-items:center;display:flex;font-weight:500;border-radius:5px;:focus{outline:2px solid transparent;outline-offset:2px;}justify-content:center;max-width:100%;cursor:pointer;", disabled && {
+    css: ["transition-property:background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms;position:relative;border-width:1px;align-items:center;display:flex;font-weight:500;border-radius:5px;:focus{outline:2px solid transparent;outline-offset:2px;}justify-content:center;max-width:100%;cursor:pointer;border-style:solid;font-size:0.875rem;line-height:1.25rem;", disabled && {
       "--tw-border-opacity": "1",
       "borderColor": "rgba(234, 234, 234, var(--tw-border-opacity))",
       "--tw-text-opacity": "1",
@@ -7581,20 +7581,17 @@ var Button_Button = function Button(_ref) {
       "paddingLeft": "1rem",
       "paddingRight": "1rem",
       "height": "2rem",
-      "lineHeight": "1.25rem",
-      "fontSize": "0.875rem"
+      "lineHeight": "2rem"
     }, size == "normal" && {
       "paddingLeft": "1.5rem",
       "paddingRight": "1.5rem",
       "height": "2.25rem",
-      "lineHeight": "1.25rem",
-      "fontSize": "0.875rem"
+      "lineHeight": "2.25rem"
     }, size == "large" && {
       "paddingLeft": "3rem",
       "paddingRight": "3rem",
       "height": "2.5rem",
-      "lineHeight": "1.5rem",
-      "fontSize": "1rem"
+      "lineHeight": "2.5rem"
     }, block && {
       "width": "100%"
     },  true ? "" : undefined,  true ? "" : undefined,  true ? "" : undefined,  true ? "" : undefined]
